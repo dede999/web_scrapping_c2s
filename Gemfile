@@ -33,6 +33,7 @@ gem 'shoulda-matchers', '~> 4.0', group: :test
 # Gems for the web scrapping
 gem 'nokogiri'
 gem 'open-uri'
+gem 'faraday'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
