@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Attempt, type: :model do
   describe 'validation' do
-    it { should validate_presence_of(:task_id) }
+    %i[url task_id].each do |field|
+      it { should validate_presence_of(field) }
+    end
 
     describe 'when attemp is successful' do
       let(:attempt) { Attempt.new success: true }
@@ -21,7 +23,7 @@ RSpec.describe Attempt, type: :model do
     end
 
     describe 'when attempt is not successful' do
-      let(:attempt) { Attempt.new success: false, task_id: '1' }
+      let(:attempt) { Attempt.new success: false, task_id: '1', url: 'URL' }
 
       it 'is expected to be valid' do
         expect(attempt).to be_valid
